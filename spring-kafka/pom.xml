@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.juzi</groupId>
+    <artifactId>spring-kafka</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>spring-kafka</name>
+    <description>spring-kafka integration explample</description>
+    <url>http://projects.spring.io/spring-integration</url>
+
+    <properties>
+        <junit.version>4.11</junit.version>
+
+        <!-- global setting -->
+        <sourceEncoding>UTF-8</sourceEncoding>
+        <java-version>1.7</java-version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <junit.version>4.11</junit.version>
+        <commons-lang.version>2.6</commons-lang.version>
+        <commons-codec.version>1.9</commons-codec.version>
+        <commons-beanutils.version>1.7.0</commons-beanutils.version>
+        <commons-net.version>3.3</commons-net.version>
+        <org.apache.commons.version>4.0</org.apache.commons.version>
+        <com.fasterxml.version>2.5.1</com.fasterxml.version>
+        <fileupload.version>1.3.1</fileupload.version>
+        <javax.servlet.version>2.5</javax.servlet.version>
+        <org.aspectj.version>1.8.7</org.aspectj.version>
+        <org.slf4j.version>1.7.5</org.slf4j.version>
+        <proxool.version>0.9.1</proxool.version>
+        <mysql-connector-java.version>5.1.34</mysql-connector-java.version>
+        <org.mybatis.version>3.2.5</org.mybatis.version>
+        <org.mybatis.mybatis-spring.version>1.2.1</org.mybatis.mybatis-spring.version>
+        <hibernate.validator.version>4.3.0.Final</hibernate.validator.version>
+        <org.springframework.version>4.2.5.RELEASE</org.springframework.version>
+        <spring-session.version>1.1.1.RELEASE</spring-session.version>
+        <log4jdbc.version>1.16</log4jdbc.version>
+        <mybatis-paginator.version>1.2.8</mybatis-paginator.version>
+        <commons-httpclient.version>3.0</commons-httpclient.version>
+        <gexin-rp.version>4.0.0.1</gexin-rp.version>
+        <commons-configuration.version>1.6</commons-configuration.version>
+        <protobuf-java.version>2.5.0</protobuf-java.version>
+        <jackson-all.version>1.8.5</jackson-all.version>
+        <jstl.version>1.2</jstl.version>
+        <jsp.version>2.1</jsp.version>
+        <joda.time.version>2.8.1</joda.time.version>
+        <poi.version>3.12</poi.version>
+        <druid.version>1.0.15</druid.version>
+
+        <zkclient_version>0.1</zkclient_version>
+        <tomcat_embed_version>8.0.11</tomcat_embed_version>
+        <javassist_version>3.15.0-GA</javassist_version>
+        <httpclient_version>4.5.1</httpclient_version>
+        <jboss.resteasy.version>3.0.7.Final</jboss.resteasy.version>
+        <commons.version>3.3.2</commons.version>
+        <google.guava>18.0</google.guava>
+
+        <!--shiro-->
+        <shiro.version>1.2.2</shiro.version>
+        <shiro.redis>1.1.0-RELEASE</shiro.redis>
+
+        <!--mongo-->
+        <mongo.version>1.8.4.RELEASE</mongo.version>
+
+        <!--drools-->
+        <drools.version>6.3.0.Final</drools.version>
+
+        <!--mq-->
+        <mq.version>1.2.1</mq.version>
+
+        <!--dubbo + zookeeper-->
+        <dubbo.version>2.8.4</dubbo.version>
+        <zookeeper.version>3.4.8</zookeeper.version>
+        <zkclient_version>0.1</zkclient_version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+            <version>1.6.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-data-redis</artifactId>
+            <version>${spring-session.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+
+        <!--spring-kafka集成-->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+            <version>1.0.1.RELEASE</version>
+        </dependency>
+    </dependencies>
+</project>
