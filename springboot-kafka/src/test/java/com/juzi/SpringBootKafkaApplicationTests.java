@@ -27,7 +27,7 @@ public class SpringBootKafkaApplicationTests {
 
     @Test
     public void sendTest() throws InterruptedException {
-        senderMsg.sendMsg("test","ni hao!");
+        senderMsg.sendMsg("helloworld.t","ni dgsdfg!");
         recevierMsg.getLatch().await(10000, TimeUnit.MILLISECONDS);
     }
 

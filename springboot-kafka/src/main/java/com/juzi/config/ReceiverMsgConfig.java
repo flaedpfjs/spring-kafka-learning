@@ -36,6 +36,7 @@ public class ReceiverMsgConfig {
         // consumer groups allow a pool of processes to divide the work of
         // consuming and processing records
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "test");
+        props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG,"false");
 
         return props;
     }

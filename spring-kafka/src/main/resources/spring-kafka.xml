@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <bean id="kafkaConsumerFactory" class="org.springframework.kafka.core.DefaultKafkaConsumerFactory">
+        <constructor-arg>
+            <map>
+                <entry key="bootstrap.servers" value="${kafka.bootstrap.servers}"/>
+                <!-- 设置offset不存在时的策略，即初次连接到新集群时从最开始处理 -->
+                <entry key="auto.offset.reset" value="earliest" />
+                <entry key="enable.auto.commit" value="false" />
+            </map>
+        </constructor-arg>
+        <property name="valueDeserializer">
+            <bean class="org.springframework.kafka.support.serializer.JsonDeserializer" >
+            </bean>
+        </property>
+        <property name="keyDeserializer">
+            <bean class="org.apache.kafka.common.serialization.StringDeserializer" />
+        </property>
+    </bean>
+
+    <bean id="container1" class="org.springframework.kafka.listener.KafkaMessageListenerContainer" init-method="start">
+        <constructor-arg ref="kafkaConsumerFactory" />
+        <constructor-arg>
+            <bean class="org.springframework.kafka.listener.config.ContainerProperties">
+                <constructor-arg name="topics">
+                    <value>${kafka.rule.topics}</value>
+                    <value>${kafka.test.topics}</value>
+                </constructor-arg>
+                <property name="messageListener" ref="kafkaMessageListener" />
+                <!-- 设置手动提交 -->
+                <property name="ackMode" value="MANUAL" />
+                <!--<property name="syncCommits" value="false"/>-->
+            </bean>
+        </constructor-arg>
+    </bean>
+
+    <task:executor id="taskExecutor" pool-size="1"/>
+    <task:annotation-driven executor="taskExecutor"/>
+
+</beans>

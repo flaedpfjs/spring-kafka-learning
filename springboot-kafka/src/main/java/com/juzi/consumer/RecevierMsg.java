@@ -3,6 +3,7 @@ package com.juzi.consumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.annotation.KafkaListeners;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -14,9 +15,10 @@ public class RecevierMsg {
 
     private CountDownLatch latch = new CountDownLatch(1);
 
-    @KafkaListener(topics = "test")
+    @KafkaListener(topics = {"test","helloworld.t"} )
     public void recevierMsg(String message) {
-        logger.info("receiver message = {}", message);
+        logger.info("receiver message = {}" , message);
+        System.out.println("============"+message+"==================");
         latch.countDown();
     }
 
